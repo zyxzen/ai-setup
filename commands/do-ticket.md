@@ -123,8 +123,7 @@ backend / frontend when full-stack), and how each acceptance criterion will be m
 
 Get the default branch:
 `gh repo view --json defaultBranchRef -q .defaultBranchRef.name`.
-From it, create and check out `<id>-<slug>` (slug = 2–4 kebab-case words from the
-summary), e.g. `scrum-1118-password-reset`.
+From it, create and check out a branch named `<ID>`, e.g. `SCRUM-1118`.
 
 ## 4. Implement (engineer agents)
 
@@ -172,7 +171,7 @@ Only reached when no blocking issues remain.
 
 1. Stage only the files you touched (no `git add -A`/`.`). Commit with an imperative
    subject, a short body, and `Refs <ID>`. **No Claude attribution** anywhere.
-2. Push: `git push -u origin <id>-<slug>`.
+2. Push: `git push -u origin <ID>`.
 3. Read `PR_FORMAT.md` — prefer one in the target repo root; if absent, use the
    template that ships in this `ai-setup` repo. Build the PR title and body from it,
    filling the ticket link from `task.md` and the test plan from the acceptance
@@ -185,7 +184,7 @@ Only reached when no blocking issues remain.
 Report:
 
 - Ticket: `<ID> — <summary>`
-- Branch: `<id>-<slug>`
+- Branch: `<ID>`
 - Stack(s): `<rails | react | both>`
 - Review: `<rounds used>` round(s), blockers resolved
 - PR: `<url>`
