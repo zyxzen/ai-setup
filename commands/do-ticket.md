@@ -172,10 +172,20 @@ Only reached when no blocking issues remain.
 1. Stage only the files you touched (no `git add -A`/`.`). Commit with an imperative
    subject, a short body, and `Refs <ID>`. **No Claude attribution** anywhere.
 2. Push: `git push -u origin <ID>`.
-3. Read `PR_FORMAT.md` — prefer one in the target repo root; if absent, use the
-   template that ships in this `ai-setup` repo. Build the PR title and body from it,
-   filling the ticket link from `task.md` and the test plan from the acceptance
-   criteria. The ticket key MUST appear in both title and body.
+3. Look for `PR_FORMAT.md` in the target repo root.
+   - **If it exists**, read it and build the PR body from that format.
+   - **If it doesn't exist**, use this default format:
+
+     ```markdown
+     JIRA: <link to the ticket, link text is <ID>>
+
+     What Changed?
+     - <list here what changed>
+     ```
+
+   Fill the ticket link from `task.md` and list the actual changes made (derive from
+   the diff/commits, not the acceptance criteria verbatim). The ticket key MUST
+   appear in both title and body.
 4. `gh pr create --title "<ID>: <subject>" --body "<rendered body>"`.
 5. Print the PR URL.
 
